@@ -3,18 +3,16 @@ package main
 import (
 	"database/sql"
 	"embed"
+	"github.com/bootdotdev/learn-cicd-starter/internal/database"
 	"github.com/go-chi/chi"
 	"github.com/go-chi/cors"
 	"github.com/joho/godotenv"
+	_ "github.com/tursodatabase/libsql-client-go/libsql"
 	"io"
 	"log"
 	"net/http"
 	"os"
 	"time"
-
-	"github.com/bootdotdev/learn-cicd-starter/internal/database"
-
-	_ "github.com/tursodatabase/libsql-client-go/libsql"
 )
 
 type apiConfig struct {
