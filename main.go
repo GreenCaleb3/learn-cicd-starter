@@ -86,13 +86,18 @@ func main() {
 	}
 
 	v1Router.Get("/healthz", handlerReadiness)
-	/*
+	
 	router.Mount("/v1", v1Router)
 	srv := &http.Server{
 		Addr:    ":" + port,
 		Handler: router,
+		ReadHeaderTimeout: 10 * time.Second,
+   		ReadTimeout:       30 * time.Second,
+    		WriteTimeout:      30 * time.Second,
+    		IdleTimeout:       120 * time.Second,
+}
 	}
-*/
+
 	log.Printf("Serving on port: %s\n", port)
-//	log.Fatal(srv.ListenAndServe())
+	log.Fatal(srv.ListenAndServe())
 }
